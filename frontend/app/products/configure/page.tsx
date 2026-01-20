@@ -1,12 +1,19 @@
 'use client'
 
 import { useState, useEffect, Suspense } from 'react'
+import dynamic from 'next/dynamic'
+
+// Dynamically import the chart component to avoid SSR issues with Recharts
+const MarketIntelligencePanelDynamic = dynamic(
+  () => import('@/components/intelligence/MarketIntelligencePanel').then(mod => ({ default: mod.MarketIntelligencePanel })),
+  { ssr: false, loading: () => <div className="animate-pulse bg-gray-100 rounded-xl h-96" /> }
+)
 import { useRouter, useSearchParams } from 'next/navigation'
 import { Card } from '@/components/ui/Card'
 import { Button } from '@/components/ui/Button'
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs'
 import { DynamicProductForm } from '@/components/forms/DynamicProductForm'
-import { MarketIntelligencePanel } from '@/components/intelligence/MarketIntelligencePanel'
+// MarketIntelligencePanel is dynamically imported above to avoid SSR issues
 import { Product, ProductTier } from '@/types/product'
 import { MarketIntelligence, Market } from '@/types/market'
 import { Industry } from '@/types/artisan'
@@ -210,7 +217,7 @@ function ProductConfigureContent() {
           {/* Market Intelligence Panel */}
           <div className="lg:col-span-1">
             {intelligence && (
-              <MarketIntelligencePanel 
+              <MarketIntelligencePanelDynamic 
                 intelligence={intelligence} 
                 onMarketChange={handleMarketChange}
               />
