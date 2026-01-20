@@ -1,104 +1,0 @@
-POC Document: Artisan Market Exposure Platform
-Objective
-Create a Proof of Concept (POC) demonstrating the first three phases of the Artisan Market Exposure Platform. The POC should showcase the platform's ability to:
-	•	Onboard artisans and capture their profile, compliance, and banking info. 
-	•	Dynamically configure products for two industries (Leather Shoes and Bhadohi Carpets). 
-	•	Provide market intelligence and government scheme overlays. 
-	•	Collect production-ready inputs for submission to a marketplace. 
-Timeline: 3 Days  Industries: Leather (Shoes), Bhadohi Carpets  Focus: UI/UX demonstration + dynamic configurator + mock backend.
-
-Phase 1: Artisan Onboarding & Profile Creation
-Objective
-Enable artisan registration, compliance verification, and bank linkage.
-Frontend Requirements
-	•	Registration form: Individual / Company selection. 
-	•	Company/Tax/GST info: 
-	•	Detect registered or guide registration. 
-	•	Show status (Pending / Verified). 
-	•	Bank details: Pre-integrated banks, link account workflow. 
-	•	Profile summary: Show validated data, skill level, industry selection. 
-	•	Visual indicator of Phase 1 government schemes (mock data). 
-Backend (Mock)
-	•	Store artisan profile in in-memory DB / JSON file. 
-	•	Provide endpoints: 
-	•	POST /api/onboard → Returns profile ID, registration status, Phase 1 schemes. 
-	•	Prepopulate two mock artisans: one leather, one carpet. 
-Deliverable
-	•	UI screen for registration and profile summary. 
-	•	Artisan profile with Phase 1 schemes applied. 
-
-Phase 2: Product & Market Layer
-Objective
-Enable artisan to define products and visualize market intelligence per product.
-Frontend Requirements
-	•	Product selection dropdown: Leather Shoes / Bhadohi Carpets. 
-	•	Dynamic product configuration form (leveraging configurator logic):  Leather Shoes: Material, size, color, stitching type, design complexity.  Bhadohi Carpets: Material, length, width, design pattern, custom size option. 
-	•	Market intelligence panel: mock values for 
-	•	Demand index (High/Medium/Low) 
-	•	Trend analysis (Rising/Stable/Declining) 
-	•	Eligible markets (Domestic, EU, USA) 
-	•	Pricing tiers (Premium / Standard) dynamically suggested based on Phase 1 artisan profile. 
-	•	Phase 2 government schemes overlay (mock): Export Promotion, GST rebate. 
-Backend (Mock)
-	•	Provide endpoint: 
-	•	GET /api/product-intelligence?industry=<industry> → Returns mock market data, price tiers, scheme overlays. 
-	•	Simulate configurator logic: 
-	•	Conditional fields appear/disappear based on selections (e.g., premium tier → custom design fields). 
-Deliverable
-	•	Dynamic product creation forms per industry. 
-	•	Market intelligence and scheme overlay panel visible to artisan. 
-
-Phase 3: Artisan Input & Transaction Readiness
-Objective
-Collect production-ready inputs and prepare product for marketplace submission.
-Frontend Requirements
-	•	Production input forms for each industry:  Leather Shoes: Shoe type, quantity, stitching type, packaging options.  Bhadohi Carpets: Weave type, dimensions, quantity, packaging. 
-	•	Conditional fields based on product type, premium/standard tier, and scheme eligibility. 
-	•	Validation rules (mandatory, numeric ranges, regex). 
-	•	Preview & submit functionality. 
-Backend (Mock)
-	•	Endpoint: POST /api/submit-product → Returns confirmation "Market-ready Product Submitted". 
-	•	Store submission in in-memory DB / JSON. 
-Deliverable
-	•	Submission confirmation and visual feedback that product is ready for marketplace. 
-
-POC Tech Stack
-	•	Frontend: React or Next.js (for rapid dynamic forms and responsive UI) 
-	•	Backend: Node.js / Express or Python Flask (minimal API mock endpoints) 
-	•	Data Storage: JSON or in-memory mock DB 
-	•	Dynamic Forms: Use existing product configurator logic 
-	•	Market & Scheme Data: Static JSON mock files 
-	•	Admin Overlay: Optional, minimal controls to demonstrate dynamic fields and scheme toggle 
-
-POC Deliverables Summary
-Phase
-Deliverable
-Phase 1
-Artisan onboarding UI, profile summary, Phase 1 schemes applied
-Phase 2
-Product configurator UI per industry, dynamic fields, market intelligence panel, Phase 2 schemes overlay
-Phase 3
-Production input forms, validation rules, submission confirmation
-Additional Notes:
-	•	Mock market intelligence and government scheme data should simulate realistic values. 
-	•	Focus is on UI/UX flow, dynamic configurator, and conditional logic, not full production backend. 
-	•	Keep it extensible: add new products or industries in future phases without redesign. 
-	•	Include sample artisan profiles and product templates for quick demonstration. 
-
-POC Timeline (3 Days)
-Day
-Tasks
-Day 1
-Frontend skeleton + Phase 1 onboarding forms + mock backend
-Day 2
-Product configurator forms for leather shoes & carpets + market intelligence panel + scheme overlays
-Day 3
-Production input forms, validation rules, submission flow + testing and demo-ready screens
-
-POC Success Criteria
-	•	Artisan can complete onboarding with profile and bank integration. 
-	•	Artisan can select industry, configure product/sub-product dynamically. 
-	•	Market intelligence and government scheme overlays are visible per product. 
-	•	Artisan can submit production-ready inputs and receive confirmation. 
-	•	All UI screens are industry-agnostic but configured for POC industries (Leather Shoes, Bhadohi Carpets)
-
