@@ -9,6 +9,9 @@ import { Dropdown } from '@/components/ui/Dropdown'
 import { ProductInsights, RawMaterial, Market, MarketRequirement } from '@/types/product-insights'
 import { Industry } from '@/types/artisan'
 
+// Force dynamic rendering to prevent static prerendering issues with useParams and API calls
+export const dynamic = 'force-dynamic'
+
 export default function ProductInsightsPage() {
   const router = useRouter()
   const params = useParams()

@@ -18,6 +18,9 @@ import { Product, ProductTier } from '@/types/product'
 import { MarketIntelligence, Market } from '@/types/market'
 import { Industry } from '@/types/artisan'
 
+// Force dynamic rendering to prevent static prerendering issues with useSearchParams, API calls, and Recharts
+export const dynamic = 'force-dynamic'
+
 function ProductConfigureContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
