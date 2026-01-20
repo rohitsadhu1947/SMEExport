@@ -1,21 +1,27 @@
 'use client'
 
 import { useState, useEffect, Suspense } from 'react'
+import dynamicImport from 'next/dynamic'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { Card } from '@/components/ui/Card'
 import { Button } from '@/components/ui/Button'
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs'
 import { DynamicProductForm } from '@/components/forms/DynamicProductForm'
-import { MarketIntelligencePanel } from '@/components/intelligence/MarketIntelligencePanel'
 import { Product, ProductTier } from '@/types/product'
 import { MarketIntelligence, Market } from '@/types/market'
 import { Industry } from '@/types/artisan'
+
+// Dynamically import the chart component to avoid SSR issues with Recharts
+const MarketIntelligencePanelDynamic = dynamicImport(
+  () => import('@/components/intelligence/MarketIntelligencePanel').then(mod => ({ default: mod.MarketIntelligencePanel })),
+  { ssr: false, loading: () => <div className="animate-pulse bg-gray-100 rounded-xl h-96" /> }
+)
 
 function ProductConfigureContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const industry = searchParams.get('industry') as Industry
-  const [productName, setProductName] = useState<string | null>(null)
+  const productName = searchParams.get('product') || (typeof window !== 'undefined' ? sessionStorage.getItem('selectedProduct') : null)
 
   const [product, setProduct] = useState<Product | null>(null)
   const [intelligence, setIntelligence] = useState<MarketIntelligence | null>(null)
@@ -25,20 +31,11 @@ function ProductConfigureContent() {
   const [selectedMarket, setSelectedMarket] = useState<Market | null>(null)
 
   useEffect(() => {
-    // Get product name from URL or sessionStorage (client-side only)
-    const urlProductName = searchParams.get('product')
-    const storedProductName = sessionStorage.getItem('selectedProduct')
-    setProductName(urlProductName || storedProductName)
-  }, [searchParams])
-
-  useEffect(() => {
-    const artisanId = sessionStorage.getItem('artisanId')
+    const artisanId = typeof window !== 'undefined' ? sessionStorage.getItem('artisanId') : null
     if (!artisanId || !industry) {
       router.push('/products/select')
       return
     }
-
-    if (!productName) return
 
     // Fetch product configuration
     const productUrl = productName 
@@ -92,13 +89,15 @@ function ProductConfigureContent() {
   const handleFormSubmit = (data: Record<string, any>) => {
     setFormData(data)
     // Store product configuration
-    sessionStorage.setItem('productConfiguration', JSON.stringify({
-      industry,
-      product: product?.name,
-      tier: currentTier,
-      formData: data
-    }))
-    sessionStorage.setItem('marketIntelligence', JSON.stringify(intelligence))
+    if (typeof window !== 'undefined') {
+      sessionStorage.setItem('productConfiguration', JSON.stringify({
+        industry,
+        product: product?.name,
+        tier: currentTier,
+        formData: data
+      }))
+      sessionStorage.setItem('marketIntelligence', JSON.stringify(intelligence))
+    }
     
     router.push('/production/input')
   }
@@ -217,7 +216,7 @@ function ProductConfigureContent() {
           {/* Market Intelligence Panel */}
           <div className="lg:col-span-1">
             {intelligence && (
-              <MarketIntelligencePanel 
+              <MarketIntelligencePanelDynamic 
                 intelligence={intelligence} 
                 onMarketChange={handleMarketChange}
               />
@@ -229,21 +228,16 @@ function ProductConfigureContent() {
   )
 }
 
-// Loading component for Suspense
-function LoadingSpinner() {
-  return (
-    <div className="min-h-screen bg-white flex items-center justify-center">
-      <div className="text-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-2 border-slate-200 border-t-slate-700 mx-auto mb-4"></div>
-        <p className="text-sm text-gray-500 font-medium">Loading configuration...</p>
-      </div>
-    </div>
-  )
-}
-
 export default function ProductConfigureClient() {
   return (
-    <Suspense fallback={<LoadingSpinner />}>
+    <Suspense fallback={
+      <div className="min-h-screen bg-white flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-8 w-8 border-2 border-slate-200 border-t-slate-700 mx-auto mb-4"></div>
+          <p className="text-sm text-gray-500 font-medium">Loading configuration...</p>
+        </div>
+      </div>
+    }>
       <ProductConfigureContent />
     </Suspense>
   )
