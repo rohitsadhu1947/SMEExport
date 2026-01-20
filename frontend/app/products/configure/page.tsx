@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { Card } from '@/components/ui/Card'
 import { Button } from '@/components/ui/Button'
@@ -11,11 +11,11 @@ import { Product, ProductTier } from '@/types/product'
 import { MarketIntelligence, Market } from '@/types/market'
 import { Industry } from '@/types/artisan'
 
-export default function ProductConfigurePage() {
+function ProductConfigureContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const industry = searchParams.get('industry') as Industry
-  const productName = searchParams.get('product') || sessionStorage.getItem('selectedProduct')
+  const productName = searchParams.get('product') || (typeof window !== 'undefined' ? sessionStorage.getItem('selectedProduct') : null)
 
   const [product, setProduct] = useState<Product | null>(null)
   const [intelligence, setIntelligence] = useState<MarketIntelligence | null>(null)
@@ -25,7 +25,7 @@ export default function ProductConfigurePage() {
   const [selectedMarket, setSelectedMarket] = useState<Market | null>(null)
 
   useEffect(() => {
-    const artisanId = sessionStorage.getItem('artisanId')
+    const artisanId = typeof window !== 'undefined' ? sessionStorage.getItem('artisanId') : null
     if (!artisanId || !industry) {
       router.push('/products/select')
       return
@@ -62,11 +62,11 @@ export default function ProductConfigurePage() {
   }, [industry, productName, router])
 
   const handleMarketChange = async (market: Market) => {
-    if (!industry) return
+    if (!industry || !productName) return
     
     setLoading(true)
     try {
-      const response = await fetch(`/api/product-intelligence?industry=${encodeURIComponent(industry)}&market=${encodeURIComponent(market)}`)
+      const response = await fetch(`/api/product-intelligence?industry=${encodeURIComponent(industry)}&product=${encodeURIComponent(productName)}&market=${encodeURIComponent(market)}`)
       const data = await response.json()
       if (data.success) {
         setIntelligence(data.intelligence)
@@ -83,13 +83,15 @@ export default function ProductConfigurePage() {
   const handleFormSubmit = (data: Record<string, any>) => {
     setFormData(data)
     // Store product configuration
-    sessionStorage.setItem('productConfiguration', JSON.stringify({
-      industry,
-      product: product?.name,
-      tier: currentTier,
-      formData: data
-    }))
-    sessionStorage.setItem('marketIntelligence', JSON.stringify(intelligence))
+    if (typeof window !== 'undefined') {
+      sessionStorage.setItem('productConfiguration', JSON.stringify({
+        industry,
+        product: product?.name,
+        tier: currentTier,
+        formData: data
+      }))
+      sessionStorage.setItem('marketIntelligence', JSON.stringify(intelligence))
+    }
     
     router.push('/production/input')
   }
@@ -217,5 +219,20 @@ export default function ProductConfigurePage() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function ProductConfigurePage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-white flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-8 w-8 border-2 border-slate-200 border-t-slate-700 mx-auto mb-4"></div>
+          <p className="text-sm text-gray-500 font-medium">Loading configuration...</p>
+        </div>
+      </div>
+    }>
+      <ProductConfigureContent />
+    </Suspense>
   )
 }
