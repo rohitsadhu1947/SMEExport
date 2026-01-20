@@ -1,0 +1,36 @@
+{
+  "phase1": [
+    {
+      "scheme_key": "MSME",
+      "scheme_name": "MSME Subsidy",
+      "applicable": true,
+      "benefit": "Tax rebates & low-interest credit",
+      "phase": 1
+    },
+    {
+      "scheme_key": "UDYAM",
+      "scheme_name": "UDYAM Registration Benefits",
+      "applicable": true,
+      "benefit": "Priority lending & government tenders",
+      "phase": 1
+    }
+  ],
+  "phase2": [
+    {
+      "scheme_key": "EXPORT_PROMO",
+      "scheme_name": "Export Promotion Scheme",
+      "applicable": true,
+      "benefit": "Duty-free exports & freight subsidies",
+      "phase": 2,
+      "pricing_adjustment": 5
+    },
+    {
+      "scheme_key": "GST_REBATE",
+      "scheme_name": "GST Rebate for Exporters",
+      "applicable": true,
+      "benefit": "GST refund on export goods",
+      "phase": 2,
+      "pricing_adjustment": 3
+    }
+  ]
+}

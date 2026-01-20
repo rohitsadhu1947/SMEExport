@@ -1,0 +1,179 @@
+{
+  "Leather": {
+    "USA": {
+      "demand_index": "high",
+      "trend": "rising",
+      "price_tier": "premium",
+      "base_price": 2800,
+      "suggested_price": 3100,
+      "trend_data": [
+        { "month": "Jan", "value": 120 },
+        { "month": "Feb", "value": 140 },
+        { "month": "Mar", "value": 155 },
+        { "month": "Apr", "value": 170 },
+        { "month": "May", "value": 185 },
+        { "month": "Jun", "value": 200 }
+      ],
+      "phase2_schemes": [
+        {
+          "scheme_key": "EXPORT_PROMO",
+          "scheme_name": "Export Promotion Scheme",
+          "applicable": true,
+          "benefit": "Duty-free exports & freight subsidies",
+          "phase": 2,
+          "pricing_adjustment": 5
+        },
+        {
+          "scheme_key": "GST_REBATE",
+          "scheme_name": "GST Rebate for Exporters",
+          "applicable": true,
+          "benefit": "GST refund on export goods",
+          "phase": 2,
+          "pricing_adjustment": 3
+        }
+      ]
+    },
+    "EU": {
+      "demand_index": "high",
+      "trend": "stable",
+      "price_tier": "premium",
+      "base_price": 2600,
+      "suggested_price": 2850,
+      "trend_data": [
+        { "month": "Jan", "value": 115 },
+        { "month": "Feb", "value": 125 },
+        { "month": "Mar", "value": 130 },
+        { "month": "Apr", "value": 135 },
+        { "month": "May", "value": 140 },
+        { "month": "Jun", "value": 142 }
+      ],
+      "phase2_schemes": [
+        {
+          "scheme_key": "EXPORT_PROMO",
+          "scheme_name": "Export Promotion Scheme",
+          "applicable": true,
+          "benefit": "Duty-free exports & freight subsidies",
+          "phase": 2,
+          "pricing_adjustment": 5
+        }
+      ]
+    },
+    "Domestic": {
+      "demand_index": "medium",
+      "trend": "rising",
+      "price_tier": "standard",
+      "base_price": 2500,
+      "suggested_price": 2650,
+      "trend_data": [
+        { "month": "Jan", "value": 100 },
+        { "month": "Feb", "value": 110 },
+        { "month": "Mar", "value": 120 },
+        { "month": "Apr", "value": 130 },
+        { "month": "May", "value": 140 },
+        { "month": "Jun", "value": 150 }
+      ],
+      "phase2_schemes": []
+    },
+    "Middle East": {
+      "demand_index": "medium",
+      "trend": "rising",
+      "price_tier": "premium",
+      "base_price": 2700,
+      "suggested_price": 2950,
+      "trend_data": [
+        { "month": "Jan", "value": 105 },
+        { "month": "Feb", "value": 115 },
+        { "month": "Mar", "value": 125 },
+        { "month": "Apr", "value": 135 },
+        { "month": "May", "value": 145 },
+        { "month": "Jun", "value": 155 }
+      ],
+      "phase2_schemes": [
+        {
+          "scheme_key": "EXPORT_PROMO",
+          "scheme_name": "Export Promotion Scheme",
+          "applicable": true,
+          "benefit": "Duty-free exports & freight subsidies",
+          "phase": 2,
+          "pricing_adjustment": 5
+        }
+      ]
+    }
+  },
+  "Carpets": {
+    "USA": {
+      "demand_index": "medium",
+      "trend": "stable",
+      "price_tier": "premium",
+      "base_price": 5500,
+      "suggested_price": 5800,
+      "trend_data": [
+        { "month": "Jan", "value": 100 },
+        { "month": "Feb", "value": 105 },
+        { "month": "Mar", "value": 102 },
+        { "month": "Apr", "value": 108 },
+        { "month": "May", "value": 110 },
+        { "month": "Jun", "value": 112 }
+      ],
+      "phase2_schemes": [
+        {
+          "scheme_key": "EXPORT_PROMO",
+          "scheme_name": "Export Promotion Scheme",
+          "applicable": true,
+          "benefit": "Duty-free exports & freight subsidies",
+          "phase": 2,
+          "pricing_adjustment": 5
+        }
+      ]
+    },
+    "EU": {
+      "demand_index": "high",
+      "trend": "rising",
+      "price_tier": "premium",
+      "base_price": 5200,
+      "suggested_price": 5500,
+      "trend_data": [
+        { "month": "Jan", "value": 95 },
+        { "month": "Feb", "value": 100 },
+        { "month": "Mar", "value": 110 },
+        { "month": "Apr", "value": 120 },
+        { "month": "May", "value": 130 },
+        { "month": "Jun", "value": 140 }
+      ],
+      "phase2_schemes": [
+        {
+          "scheme_key": "EXPORT_PROMO",
+          "scheme_name": "Export Promotion Scheme",
+          "applicable": true,
+          "benefit": "Duty-free exports & freight subsidies",
+          "phase": 2,
+          "pricing_adjustment": 5
+        },
+        {
+          "scheme_key": "GST_REBATE",
+          "scheme_name": "GST Rebate for Exporters",
+          "applicable": true,
+          "benefit": "GST refund on export goods",
+          "phase": 2,
+          "pricing_adjustment": 3
+        }
+      ]
+    },
+    "Domestic": {
+      "demand_index": "medium",
+      "trend": "stable",
+      "price_tier": "standard",
+      "base_price": 5000,
+      "suggested_price": 5200,
+      "trend_data": [
+        { "month": "Jan", "value": 90 },
+        { "month": "Feb", "value": 92 },
+        { "month": "Mar", "value": 94 },
+        { "month": "Apr", "value": 96 },
+        { "month": "May", "value": 98 },
+        { "month": "Jun", "value": 100 }
+      ],
+      "phase2_schemes": []
+    }
+  }
+}

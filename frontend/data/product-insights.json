@@ -1,0 +1,525 @@
+{
+  "Leather": {
+    "raw_materials": [
+      {
+        "id": "leather_quality",
+        "name": "Leather Quality",
+        "category": "Primary Material",
+        "description": "The grade and type of leather used significantly impacts product quality and pricing",
+        "options": [
+          {
+            "value": "premium_full_grain",
+            "label": "Premium Full Grain Leather",
+            "description": "Highest quality, natural grain, most durable",
+            "price_impact": "high",
+            "market_requirements": {
+              "USA": {
+                "demand": "high",
+                "preferred": true,
+                "price_multiplier": 1.4,
+                "trend": "rising",
+                "recommendation": "Strongly recommended for premium market positioning"
+              },
+              "EU": {
+                "demand": "high",
+                "preferred": true,
+                "price_multiplier": 1.35,
+                "trend": "stable",
+                "recommendation": "Preferred choice for EU markets"
+              },
+              "Domestic": {
+                "demand": "medium",
+                "preferred": false,
+                "price_multiplier": 1.2,
+                "trend": "rising",
+                "recommendation": "Good for premium domestic segment"
+              },
+              "Middle East": {
+                "demand": "high",
+                "preferred": true,
+                "price_multiplier": 1.4,
+                "trend": "rising",
+                "recommendation": "Highly valued in Middle East markets"
+              }
+            }
+          },
+          {
+            "value": "top_grain",
+            "label": "Top Grain Leather",
+            "description": "Good quality, sanded surface, durable",
+            "price_impact": "medium",
+            "market_requirements": {
+              "USA": {
+                "demand": "medium",
+                "preferred": false,
+                "price_multiplier": 1.0,
+                "trend": "stable",
+                "recommendation": "Standard option for mid-range products"
+              },
+              "EU": {
+                "demand": "medium",
+                "preferred": false,
+                "price_multiplier": 1.0,
+                "trend": "stable",
+                "recommendation": "Acceptable for standard EU products"
+              },
+              "Domestic": {
+                "demand": "high",
+                "preferred": true,
+                "price_multiplier": 1.0,
+                "trend": "stable",
+                "recommendation": "Most popular choice for domestic market"
+              },
+              "Middle East": {
+                "demand": "medium",
+                "preferred": false,
+                "price_multiplier": 1.0,
+                "trend": "stable",
+                "recommendation": "Standard option"
+              }
+            }
+          },
+          {
+            "value": "genuine_leather",
+            "label": "Genuine Leather",
+            "description": "Lower grade, split leather, less durable",
+            "price_impact": "low",
+            "market_requirements": {
+              "USA": {
+                "demand": "low",
+                "preferred": false,
+                "price_multiplier": 0.7,
+                "trend": "declining",
+                "recommendation": "Not recommended for export markets"
+              },
+              "EU": {
+                "demand": "low",
+                "preferred": false,
+                "price_multiplier": 0.7,
+                "trend": "declining",
+                "recommendation": "Not recommended for export markets"
+              },
+              "Domestic": {
+                "demand": "medium",
+                "preferred": false,
+                "price_multiplier": 0.7,
+                "trend": "stable",
+                "recommendation": "Budget option for price-sensitive segment"
+              },
+              "Middle East": {
+                "demand": "low",
+                "preferred": false,
+                "price_multiplier": 0.7,
+                "trend": "declining",
+                "recommendation": "Not recommended"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "sole_material",
+        "name": "Sole Material",
+        "category": "Component",
+        "description": "Sole construction affects durability and market appeal",
+        "options": [
+          {
+            "value": "leather_sole",
+            "label": "Leather Sole",
+            "description": "Traditional, breathable, premium feel",
+            "price_impact": "high",
+            "market_requirements": {
+              "USA": {
+                "demand": "high",
+                "preferred": true,
+                "price_multiplier": 1.3,
+                "trend": "rising",
+                "recommendation": "Premium choice for US market"
+              },
+              "EU": {
+                "demand": "high",
+                "preferred": true,
+                "price_multiplier": 1.3,
+                "trend": "stable",
+                "recommendation": "Highly valued in EU markets"
+              },
+              "Domestic": {
+                "demand": "medium",
+                "preferred": false,
+                "price_multiplier": 1.1,
+                "trend": "rising",
+                "recommendation": "Good for premium positioning"
+              },
+              "Middle East": {
+                "demand": "high",
+                "preferred": true,
+                "price_multiplier": 1.3,
+                "trend": "rising",
+                "recommendation": "Preferred in Middle East"
+              }
+            }
+          },
+          {
+            "value": "rubber_sole",
+            "label": "Rubber Sole",
+            "description": "Durable, weather-resistant, modern",
+            "price_impact": "medium",
+            "market_requirements": {
+              "USA": {
+                "demand": "medium",
+                "preferred": false,
+                "price_multiplier": 1.0,
+                "trend": "stable",
+                "recommendation": "Standard option"
+              },
+              "EU": {
+                "demand": "medium",
+                "preferred": false,
+                "price_multiplier": 1.0,
+                "trend": "stable",
+                "recommendation": "Acceptable standard"
+              },
+              "Domestic": {
+                "demand": "high",
+                "preferred": true,
+                "price_multiplier": 1.0,
+                "trend": "stable",
+                "recommendation": "Most popular for domestic market"
+              },
+              "Middle East": {
+                "demand": "medium",
+                "preferred": false,
+                "price_multiplier": 1.0,
+                "trend": "stable",
+                "recommendation": "Standard option"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "stitching_type",
+        "name": "Stitching Type",
+        "category": "Craftsmanship",
+        "description": "Stitching quality and type reflect craftsmanship level",
+        "options": [
+          {
+            "value": "hand_stitched",
+            "label": "Hand Stitched",
+            "description": "Artisan craftsmanship, premium quality",
+            "price_impact": "high",
+            "market_requirements": {
+              "USA": {
+                "demand": "high",
+                "preferred": true,
+                "price_multiplier": 1.5,
+                "trend": "rising",
+                "recommendation": "Highly valued for premium positioning"
+              },
+              "EU": {
+                "demand": "high",
+                "preferred": true,
+                "price_multiplier": 1.5,
+                "trend": "rising",
+                "recommendation": "Premium craftsmanship appreciated"
+              },
+              "Domestic": {
+                "demand": "medium",
+                "preferred": false,
+                "price_multiplier": 1.2,
+                "trend": "rising",
+                "recommendation": "Good for premium segment"
+              },
+              "Middle East": {
+                "demand": "high",
+                "preferred": true,
+                "price_multiplier": 1.5,
+                "trend": "rising",
+                "recommendation": "Highly valued"
+              }
+            }
+          },
+          {
+            "value": "machine_stitched",
+            "label": "Machine Stitched",
+            "description": "Consistent quality, efficient production",
+            "price_impact": "medium",
+            "market_requirements": {
+              "USA": {
+                "demand": "medium",
+                "preferred": false,
+                "price_multiplier": 1.0,
+                "trend": "stable",
+                "recommendation": "Standard acceptable quality"
+              },
+              "EU": {
+                "demand": "medium",
+                "preferred": false,
+                "price_multiplier": 1.0,
+                "trend": "stable",
+                "recommendation": "Standard acceptable"
+              },
+              "Domestic": {
+                "demand": "high",
+                "preferred": true,
+                "price_multiplier": 1.0,
+                "trend": "stable",
+                "recommendation": "Most common choice"
+              },
+              "Middle East": {
+                "demand": "medium",
+                "preferred": false,
+                "price_multiplier": 1.0,
+                "trend": "stable",
+                "recommendation": "Standard option"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "production_requirements": {
+      "minimum_order_quantity": 50,
+      "lead_time_days": 30,
+      "certifications_required": ["ISO 9001", "Leather Working Group"],
+      "quality_standards": ["ASTM D2208", "ISO 11640"]
+    }
+  },
+  "Carpets": {
+    "raw_materials": [
+      {
+        "id": "yarn_material",
+        "name": "Yarn Material",
+        "category": "Primary Material",
+        "description": "Yarn type determines carpet quality, durability, and market appeal",
+        "options": [
+          {
+            "value": "silk_yarn",
+            "label": "Silk Yarn",
+            "description": "Luxurious, soft, premium quality",
+            "price_impact": "high",
+            "market_requirements": {
+              "USA": {
+                "demand": "high",
+                "preferred": true,
+                "price_multiplier": 1.6,
+                "trend": "rising",
+                "recommendation": "Premium choice for luxury market"
+              },
+              "EU": {
+                "demand": "high",
+                "preferred": true,
+                "price_multiplier": 1.6,
+                "trend": "rising",
+                "recommendation": "Highly valued in EU luxury markets"
+              },
+              "Domestic": {
+                "demand": "medium",
+                "preferred": false,
+                "price_multiplier": 1.3,
+                "trend": "rising",
+                "recommendation": "Premium domestic segment"
+              }
+            }
+          },
+          {
+            "value": "wool_yarn",
+            "label": "Wool Yarn",
+            "description": "Natural, durable, traditional quality",
+            "price_impact": "high",
+            "market_requirements": {
+              "USA": {
+                "demand": "high",
+                "preferred": true,
+                "price_multiplier": 1.4,
+                "trend": "stable",
+                "recommendation": "Preferred for traditional appeal"
+              },
+              "EU": {
+                "demand": "high",
+                "preferred": true,
+                "price_multiplier": 1.4,
+                "trend": "rising",
+                "recommendation": "Highly valued for natural materials"
+              },
+              "Domestic": {
+                "demand": "high",
+                "preferred": true,
+                "price_multiplier": 1.2,
+                "trend": "stable",
+                "recommendation": "Most popular choice"
+              }
+            }
+          },
+          {
+            "value": "cotton_yarn",
+            "label": "Cotton Yarn",
+            "description": "Affordable, soft, versatile",
+            "price_impact": "medium",
+            "market_requirements": {
+              "USA": {
+                "demand": "medium",
+                "preferred": false,
+                "price_multiplier": 1.0,
+                "trend": "stable",
+                "recommendation": "Standard option"
+              },
+              "EU": {
+                "demand": "medium",
+                "preferred": false,
+                "price_multiplier": 1.0,
+                "trend": "stable",
+                "recommendation": "Acceptable standard"
+              },
+              "Domestic": {
+                "demand": "high",
+                "preferred": false,
+                "price_multiplier": 1.0,
+                "trend": "stable",
+                "recommendation": "Budget-friendly option"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "weave_type",
+        "name": "Weave Type",
+        "category": "Craftsmanship",
+        "description": "Weaving technique affects pattern complexity and value",
+        "options": [
+          {
+            "value": "hand_knotted",
+            "label": "Hand Knotted",
+            "description": "Traditional craftsmanship, intricate patterns",
+            "price_impact": "high",
+            "market_requirements": {
+              "USA": {
+                "demand": "high",
+                "preferred": true,
+                "price_multiplier": 1.5,
+                "trend": "rising",
+                "recommendation": "Highly valued for artisan craftsmanship"
+              },
+              "EU": {
+                "demand": "high",
+                "preferred": true,
+                "price_multiplier": 1.5,
+                "trend": "rising",
+                "recommendation": "Premium craftsmanship appreciated"
+              },
+              "Domestic": {
+                "demand": "high",
+                "preferred": true,
+                "price_multiplier": 1.3,
+                "trend": "stable",
+                "recommendation": "Traditional value appreciated"
+              }
+            }
+          },
+          {
+            "value": "hand_tufted",
+            "label": "Hand Tufted",
+            "description": "Faster production, good quality",
+            "price_impact": "medium",
+            "market_requirements": {
+              "USA": {
+                "demand": "medium",
+                "preferred": false,
+                "price_multiplier": 1.0,
+                "trend": "stable",
+                "recommendation": "Standard acceptable quality"
+              },
+              "EU": {
+                "demand": "medium",
+                "preferred": false,
+                "price_multiplier": 1.0,
+                "trend": "stable",
+                "recommendation": "Standard option"
+              },
+              "Domestic": {
+                "demand": "high",
+                "preferred": false,
+                "price_multiplier": 1.0,
+                "trend": "stable",
+                "recommendation": "Popular for efficiency"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "dye_type",
+        "name": "Dye Type",
+        "category": "Finishing",
+        "description": "Dye quality affects colorfastness and market appeal",
+        "options": [
+          {
+            "value": "natural_dyes",
+            "label": "Natural Dyes",
+            "description": "Eco-friendly, traditional, premium",
+            "price_impact": "high",
+            "market_requirements": {
+              "USA": {
+                "demand": "high",
+                "preferred": true,
+                "price_multiplier": 1.4,
+                "trend": "rising",
+                "recommendation": "Growing demand for sustainable products"
+              },
+              "EU": {
+                "demand": "high",
+                "preferred": true,
+                "price_multiplier": 1.4,
+                "trend": "rising",
+                "recommendation": "Strong preference for eco-friendly"
+              },
+              "Domestic": {
+                "demand": "medium",
+                "preferred": false,
+                "price_multiplier": 1.2,
+                "trend": "rising",
+                "recommendation": "Growing premium segment"
+              }
+            }
+          },
+          {
+            "value": "synthetic_dyes",
+            "label": "Synthetic Dyes",
+            "description": "Vibrant colors, consistent, affordable",
+            "price_impact": "medium",
+            "market_requirements": {
+              "USA": {
+                "demand": "medium",
+                "preferred": false,
+                "price_multiplier": 1.0,
+                "trend": "stable",
+                "recommendation": "Standard option"
+              },
+              "EU": {
+                "demand": "medium",
+                "preferred": false,
+                "price_multiplier": 1.0,
+                "trend": "stable",
+                "recommendation": "Acceptable standard"
+              },
+              "Domestic": {
+                "demand": "high",
+                "preferred": true,
+                "price_multiplier": 1.0,
+                "trend": "stable",
+                "recommendation": "Most common choice"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "production_requirements": {
+      "minimum_order_quantity": 20,
+      "lead_time_days": 45,
+      "certifications_required": ["ISO 9001", "OEKO-TEX Standard 100"],
+      "quality_standards": ["ISO 14001", "Carpet and Rug Institute"]
+    }
+  }
+}

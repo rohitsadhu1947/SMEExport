@@ -1,0 +1,359 @@
+{
+  "Leather Shoes": {
+    "product_id": "product-leather-shoes-001",
+    "industry": "Leather",
+    "name": "Leather Shoes",
+    "fields": [
+      {
+        "field_id": "material",
+        "type": "dropdown",
+        "label": "Material",
+        "options": ["Genuine Leather", "Synthetic Leather", "Premium Leather"],
+        "validation": {
+          "mandatory": true
+        },
+        "tier_dependent": false
+      },
+      {
+        "field_id": "size",
+        "type": "number",
+        "label": "Shoe Size",
+        "placeholder": "Enter size (5-12)",
+        "validation": {
+          "mandatory": true,
+          "min": 5,
+          "max": 12
+        },
+        "tier_dependent": false
+      },
+      {
+        "field_id": "color",
+        "type": "dropdown",
+        "label": "Color",
+        "options": ["Black", "Brown", "Tan", "White", "Custom"],
+        "validation": {
+          "mandatory": true
+        },
+        "tier_dependent": false
+      },
+      {
+        "field_id": "stitching_type",
+        "type": "dropdown",
+        "label": "Stitching Type",
+        "options": ["Standard", "Premium"],
+        "validation": {
+          "mandatory": true
+        },
+        "tier_dependent": true,
+        "visible_for_tiers": ["premium"]
+      },
+      {
+        "field_id": "design_complexity",
+        "type": "dropdown",
+        "label": "Design Complexity",
+        "options": ["Simple", "Moderate", "Complex"],
+        "validation": {
+          "mandatory": true
+        },
+        "tier_dependent": true,
+        "visible_for_tiers": ["premium"]
+      }
+    ]
+  },
+  "Leather Bags": {
+    "product_id": "product-leather-bags-001",
+    "industry": "Leather",
+    "name": "Leather Bags",
+    "fields": [
+      {
+        "field_id": "bag_type",
+        "type": "dropdown",
+        "label": "Bag Type",
+        "options": ["Tote", "Handbag", "Backpack", "Briefcase", "Messenger"],
+        "validation": {
+          "mandatory": true
+        },
+        "tier_dependent": false
+      },
+      {
+        "field_id": "material",
+        "type": "dropdown",
+        "label": "Material",
+        "options": ["Genuine Leather", "Premium Leather", "Exotic Leather"],
+        "validation": {
+          "mandatory": true
+        },
+        "tier_dependent": false
+      },
+      {
+        "field_id": "size",
+        "type": "dropdown",
+        "label": "Size",
+        "options": ["Small", "Medium", "Large", "Extra Large"],
+        "validation": {
+          "mandatory": true
+        },
+        "tier_dependent": false
+      },
+      {
+        "field_id": "color",
+        "type": "dropdown",
+        "label": "Color",
+        "options": ["Black", "Brown", "Tan", "Burgundy", "Navy", "Custom"],
+        "validation": {
+          "mandatory": true
+        },
+        "tier_dependent": false
+      },
+      {
+        "field_id": "hardware",
+        "type": "dropdown",
+        "label": "Hardware Finish",
+        "options": ["Silver", "Gold", "Brass", "Matte Black"],
+        "validation": {
+          "mandatory": true
+        },
+        "tier_dependent": true,
+        "visible_for_tiers": ["premium"]
+      }
+    ]
+  },
+  "Leather Belts": {
+    "product_id": "product-leather-belts-001",
+    "industry": "Leather",
+    "name": "Leather Belts",
+    "fields": [
+      {
+        "field_id": "belt_width",
+        "type": "dropdown",
+        "label": "Belt Width",
+        "options": ["1 inch", "1.25 inch", "1.5 inch", "1.75 inch", "2 inch"],
+        "validation": {
+          "mandatory": true
+        },
+        "tier_dependent": false
+      },
+      {
+        "field_id": "material",
+        "type": "dropdown",
+        "label": "Material",
+        "options": ["Genuine Leather", "Premium Leather", "Exotic Leather"],
+        "validation": {
+          "mandatory": true
+        },
+        "tier_dependent": false
+      },
+      {
+        "field_id": "buckle_type",
+        "type": "dropdown",
+        "label": "Buckle Type",
+        "options": ["Standard", "Automatic", "Reversible", "Custom"],
+        "validation": {
+          "mandatory": true
+        },
+        "tier_dependent": false
+      },
+      {
+        "field_id": "color",
+        "type": "dropdown",
+        "label": "Color",
+        "options": ["Black", "Brown", "Tan", "Burgundy", "Navy"],
+        "validation": {
+          "mandatory": true
+        },
+        "tier_dependent": false
+      },
+      {
+        "field_id": "buckle_material",
+        "type": "dropdown",
+        "label": "Buckle Material",
+        "options": ["Brass", "Steel", "Silver", "Gold Plated"],
+        "validation": {
+          "mandatory": true
+        },
+        "tier_dependent": true,
+        "visible_for_tiers": ["premium"]
+      }
+    ]
+  },
+  "Bhadohi Carpets": {
+    "product_id": "product-carpet-bhadohi-001",
+    "industry": "Carpets",
+    "name": "Bhadohi Carpets",
+    "fields": [
+      {
+        "field_id": "material",
+        "type": "dropdown",
+        "label": "Material",
+        "options": ["Wool", "Cotton", "Synthetic", "Silk"],
+        "validation": {
+          "mandatory": true
+        },
+        "tier_dependent": false
+      },
+      {
+        "field_id": "length",
+        "type": "number",
+        "label": "Length (ft)",
+        "placeholder": "Enter length",
+        "validation": {
+          "mandatory": true,
+          "min": 2
+        },
+        "tier_dependent": false
+      },
+      {
+        "field_id": "width",
+        "type": "number",
+        "label": "Width (ft)",
+        "placeholder": "Enter width",
+        "validation": {
+          "mandatory": true,
+          "min": 2
+        },
+        "tier_dependent": false
+      },
+      {
+        "field_id": "weave_type",
+        "type": "dropdown",
+        "label": "Weave Type",
+        "options": ["Hand-knotted", "Machine-made", "Hand-woven"],
+        "validation": {
+          "mandatory": true
+        },
+        "tier_dependent": false
+      },
+      {
+        "field_id": "design_pattern",
+        "type": "dropdown",
+        "label": "Design Pattern",
+        "options": ["Traditional", "Modern", "Geometric", "Floral", "Custom"],
+        "validation": {
+          "mandatory": true
+        },
+        "tier_dependent": true,
+        "visible_for_tiers": ["premium"]
+      }
+    ]
+  },
+  "Persian Carpets": {
+    "product_id": "product-carpet-persian-001",
+    "industry": "Carpets",
+    "name": "Persian Carpets",
+    "fields": [
+      {
+        "field_id": "material",
+        "type": "dropdown",
+        "label": "Material",
+        "options": ["Silk", "Wool", "Silk-Wool Blend"],
+        "validation": {
+          "mandatory": true
+        },
+        "tier_dependent": false
+      },
+      {
+        "field_id": "length",
+        "type": "number",
+        "label": "Length (ft)",
+        "placeholder": "Enter length",
+        "validation": {
+          "mandatory": true,
+          "min": 3
+        },
+        "tier_dependent": false
+      },
+      {
+        "field_id": "width",
+        "type": "number",
+        "label": "Width (ft)",
+        "placeholder": "Enter width",
+        "validation": {
+          "mandatory": true,
+          "min": 3
+        },
+        "tier_dependent": false
+      },
+      {
+        "field_id": "knot_density",
+        "type": "dropdown",
+        "label": "Knot Density",
+        "options": ["Standard", "High", "Very High"],
+        "validation": {
+          "mandatory": true
+        },
+        "tier_dependent": false
+      },
+      {
+        "field_id": "pattern_style",
+        "type": "dropdown",
+        "label": "Pattern Style",
+        "options": ["Isfahan", "Tabriz", "Kashan", "Nain", "Custom"],
+        "validation": {
+          "mandatory": true
+        },
+        "tier_dependent": true,
+        "visible_for_tiers": ["premium"]
+      }
+    ]
+  },
+  "Modern Carpets": {
+    "product_id": "product-carpet-modern-001",
+    "industry": "Carpets",
+    "name": "Modern Carpets",
+    "fields": [
+      {
+        "field_id": "material",
+        "type": "dropdown",
+        "label": "Material",
+        "options": ["Wool", "Synthetic", "Wool Blend", "Bamboo"],
+        "validation": {
+          "mandatory": true
+        },
+        "tier_dependent": false
+      },
+      {
+        "field_id": "length",
+        "type": "number",
+        "label": "Length (ft)",
+        "placeholder": "Enter length",
+        "validation": {
+          "mandatory": true,
+          "min": 2
+        },
+        "tier_dependent": false
+      },
+      {
+        "field_id": "width",
+        "type": "number",
+        "label": "Width (ft)",
+        "placeholder": "Enter width",
+        "validation": {
+          "mandatory": true,
+          "min": 2
+        },
+        "tier_dependent": false
+      },
+      {
+        "field_id": "style",
+        "type": "dropdown",
+        "label": "Style",
+        "options": ["Minimalist", "Geometric", "Abstract", "Textured", "Custom"],
+        "validation": {
+          "mandatory": true
+        },
+        "tier_dependent": false
+      },
+      {
+        "field_id": "pile_height",
+        "type": "dropdown",
+        "label": "Pile Height",
+        "options": ["Low", "Medium", "High", "Shag"],
+        "validation": {
+          "mandatory": true
+        },
+        "tier_dependent": true,
+        "visible_for_tiers": ["premium"]
+      }
+    ]
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "artisans": [
+    {
+      "artisan_id": "artisan-leather-001",
+      "type": "company",
+      "legal_name": "Premium Leather Works",
+      "registration": {
+        "udyam_registered": true,
+        "registration_number": "UDYAM-DL-01-0001234",
+        "tax_registered": true,
+        "tax_id": "PAN123456789",
+        "gst_registered": true,
+        "gst_id": "07ABCDE1234F1Z5"
+      },
+      "banking": {
+        "account_number": "1234567890",
+        "bank_name": "State Bank of India",
+        "ifsc": "SBIN0001234",
+        "verified": true
+      },
+      "contact": {
+        "email": "contact@premiumleather.com",
+        "mobile": "9876543210",
+        "address": {
+          "street": "123 Industrial Area",
+          "city": "Delhi",
+          "state": "Delhi",
+          "zip": "110001",
+          "country": "India"
+        }
+      },
+      "industry": "Leather",
+      "skill_level": "high",
+      "onboarding_status": "verified",
+      "phase1_schemes": [
+        {
+          "scheme_key": "MSME",
+          "scheme_name": "MSME Subsidy",
+          "applicable": true,
+          "benefit": "Tax rebates & low-interest credit",
+          "phase": 1
+        },
+        {
+          "scheme_key": "UDYAM",
+          "scheme_name": "UDYAM Registration Benefits",
+          "applicable": true,
+          "benefit": "Priority lending & government tenders",
+          "phase": 1
+        }
+      ]
+    },
+    {
+      "artisan_id": "artisan-carpet-001",
+      "type": "individual",
+      "legal_name": "Rajesh Kumar",
+      "registration": {
+        "udyam_registered": false,
+        "tax_registered": true,
+        "tax_id": "PAN987654321",
+        "gst_registered": false
+      },
+      "banking": {
+        "account_number": "9876543210",
+        "bank_name": "HDFC Bank",
+        "ifsc": "HDFC0001234",
+        "verified": true
+      },
+      "contact": {
+        "email": "rajesh.kumar@example.com",
+        "mobile": "9123456789",
+        "address": {
+          "street": "456 Handicraft Lane",
+          "city": "Bhadohi",
+          "state": "Uttar Pradesh",
+          "zip": "221401",
+          "country": "India"
+        }
+      },
+      "industry": "Bhadohi Carpets",
+      "skill_level": "medium",
+      "onboarding_status": "verified",
+      "phase1_schemes": [
+        {
+          "scheme_key": "MSME",
+          "scheme_name": "MSME Subsidy",
+          "applicable": false,
+          "benefit": "Tax rebates & low-interest credit",
+          "phase": 1
+        }
+      ]
+    }
+  ]
+}
