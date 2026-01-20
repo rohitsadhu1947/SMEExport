@@ -1,0 +1,82 @@
+Artisan Market Platform – Full Figma POC Specification & JSON Blueprint
+Objective
+This document contains the complete Figma-ready POC specification for the Artisan Market Platform, covering all screens, components, interactions, and visual style for both Leather Shoes and Bhadohi Carpets industries across all three phases (Onboarding, Product/Market, Production Input). The JSON blueprint can be used to import into Figma or guide designers and developers directly.
+
+1. Pages / Screens
+Phase 1: Artisan Onboarding & Profile
+	•	Welcome Screen
+	•	Industry selection dropdown (Leather / Bhadohi Carpets)
+	•	CTA: “Start Onboarding”
+	•	User Registration
+	•	Individual / Company toggle
+	•	Name, Email, Mobile fields with inline validation
+	•	Tooltip guidance for GST/Tax/UDYAM registration
+	•	Compliance Verification
+	•	Status indicators: Verified / Pending / Not Registered
+	•	“Guide Me” workflow
+	•	Bank Details Integration
+	•	Dropdown for pre-integrated banks
+	•	Account Number, IFSC fields
+	•	Verification success indicator
+	•	Profile Summary
+	•	Artisan profile overview
+	•	Phase 1 schemes applied (MSME etc.)
+	•	Editable fields CTA
+Phase 2: Product & Market Layer
+	•	Product Selection Screen
+	•	Product cards for Leather Shoes and Bhadohi Carpets
+	•	Dynamic Configurator Forms
+	•	Leather Shoes: Material, Size, Color, Stitching Type, Design Complexity, Custom Design Option
+	•	Bhadohi Carpets: Material, Length, Width, Weave Type, Custom Design Option
+	•	Conditional fields based on premium/standard tier
+	•	Market Intelligence Panel
+	•	Demand index (gauge chart)
+	•	Trend analysis (line chart)
+	•	Eligible markets (color-coded list)
+	•	Phase 2 scheme overlay badges
+	•	Pricing Tier Panel
+	•	Premium / Standard dynamic suggestion
+	•	Scheme-adjusted pricing visualization
+Phase 3: Production Input & Submission
+	•	Production Input Forms
+	•	Leather Shoes: Shoe Type, Quantity, Stitching Type, Packaging Options
+	•	Bhadohi Carpets: Weave Type, Dimensions, Quantity, Packaging Options
+	•	Conditional fields based on tier and scheme eligibility
+	•	Validation & Preview
+	•	Inline validation messages
+	•	Summary of market intelligence + applied schemes
+	•	Submission Confirmation
+	•	Success message with next steps
+	•	CTA: “Go to Dashboard”
+Dashboards
+	•	Artisan Overview: Profile status, compliance, bank info, schemes applied
+	•	Market Insights: Demand trends, pricing suggestions, eligible markets
+	•	Notifications: Alerts for schemes, validation, submission status
+Admin Panel (Optional POC Integration)
+	•	Dynamic field control
+	•	Scheme overlay management
+	•	Price modifier control
+
+2. Components
+	•	Buttons: Primary, Secondary, Disabled, Hover
+	•	Input Fields: Text, Number, Dropdown, Checkbox, Radio, Date, File Upload
+	•	Alerts: Success, Error, Info, Warning
+	•	Cards: Product cards, Market intelligence cards, Scheme badges
+	•	Modals: Help/Info tooltips, Terms & Conditions
+	•	Dashboard Widgets: Market overview, Production summary, Scheme notifications
+
+3. Design Tokens
+	•	Colors: Primary (#1D4ED8), Secondary (#2563EB), Accent (#FBBF24), Background (#F9FAFB), Error (#DC2626)
+	•	Typography: Headings - Inter Bold, Body - Inter Regular, Caption - Inter Medium
+	•	Spacing: Grid 8px, Padding 16px, Margin 16px
+	•	Icons & Illustrations: Industry-specific icons, conditional indicators
+
+4. Interactions / UX Notes
+	•	Conditional field visibility based on tier, product type, and scheme eligibility
+	•	Step progress indicator for multi-step forms
+	•	Hover & focus states for input and buttons
+	•	Dynamic preview panel for product & market data
+	•	Toast notifications for validation and submission feedback
+
+5. JSON / Structured Instructions for Figma
+{   "screens": [     {"id": "phase1_welcome", "name": "Welcome Screen", "components": [{"type": "dropdown", "label": "Select Industry", "options": ["Leather", "Bhadohi Carpets"]}, {"type": "button", "label": "Start Onboarding", "action": "go_to_phase1_registration"}]},     {"id": "phase1_registration", "name": "User Registration", "components": [{"type": "toggle", "label": "Individual / Company", "default": "Individual"}, {"type": "text", "label": "Full Name", "validation": {"mandatory": true}}, {"type": "text", "label": "Email", "validation": {"mandatory": true, "regex": "^.+@.+$"}}, {"type": "text", "label": "Mobile", "validation": {"mandatory": true, "regex": "^[6-9][0-9]{9}$"}}, {"type": "tooltip", "text": "Enter GST / Tax / UDYAM details if applicable"}]},     {"id": "phase1_bank", "name": "Bank Details Integration", "components": [{"type": "dropdown", "label": "Select Bank", "options": ["Bank A", "Bank B"]}, {"type": "text", "label": "Account Number", "validation": {"mandatory": true}}, {"type": "text", "label": "IFSC", "validation": {"mandatory": true}}]},     {"id": "phase2_product_selection", "name": "Product Selection", "components": [{"type": "card", "label": "Leather Shoes", "action": "open_configurator_leather"}, {"type": "card", "label": "Bhadohi Carpets", "action": "open_configurator_carpets"}]},     {"id": "phase2_configurator_leather", "name": "Leather Shoes Configurator", "components": [{"type": "dropdown", "label": "Material", "options": ["Leather", "Synthetic"]}, {"type": "number", "label": "Shoe Size", "validation": {"min": 5, "max": 12}}, {"type": "color_picker", "label": "Color"}, {"type": "dropdown", "label": "Stitching Type", "options": ["Standard", "Premium"]}, {"type": "checkbox", "label": "Custom Design Required", "conditional_fields": ["Custom Design Description"]}]},     {"id": "phase2_configurator_carpets", "name": "Bhadohi Carpets Configurator", "components": [{"type": "number", "label": "Length (ft)", "validation": {"mandatory": true, "min": 2}}, {"type": "number", "label": "Width (ft)", "validation": {"mandatory": true, "min": 2}}, {"type": "dropdown", "label": "Material", "options": ["Wool", "Cotton", "Synthetic"]}, {"type": "checkbox", "label": "Custom Design Required", "conditional_fields": ["Custom Design Description"]}]}]},     {"id": "phase3_production_input_leather", "name": "Leather Shoes Production Input", "components": [{"type": "dropdown", "label": "Shoe Type", "options": ["Formal", "Casual"]}, {"type": "number", "label": "Quantity", "validation": {"mandatory": true, "min": 1}}, {"type": "dropdown", "label": "Stitching Type", "options": ["Standard", "Premium"]}, {"type": "dropdown", "label": "Packaging Options", "options": ["Box", "Bag"]}]},     {"id": "phase3_production_input_carpets", "name": "Bhadohi Carpets Production Input", "components": [{"type": "number", "label": "Length (ft)", "validation": {"mandatory": true, "min": 2}}, {"type": "number", "label": "Width (ft)", "validation": {"mandatory": true, "min": 2}}, {"type": "dropdown", "label": "Material", "options": ["Wool", "Cotton", "Synthetic"]}, {"type": "checkbox", "label": "Custom Design Required", "conditional_fields": ["Custom Design Description"]}, {"type": "dropdown", "label": "Packaging Options", "options": ["Roll", "Box"]}]}]},   "style": {"colors": {"primary": "#1D4ED8", "secondary": "#2563EB", "accent": "#FBBF24", "background": "#F9FAFB", "error": "#DC2626"}, "typography": {"heading": "Inter Bold", "body": "Inter Regular", "caption": "Inter Medium"}, "spacing": {"grid": 8, "padding": 16, "margin": 16}},   "interactions": [     {"from": "phase1_welcome", "action": "click", "target": "phase1_registration"},     {"from": "phase1_registration", "action": "submit", "target": "phase1_bank"},     {"from": "phase2_product_selection", "action": "click", "target": "phase2_configurator_leather"},     {"from": "phase2_product_selection", "action": "click", "target": "phase2_configurator_carpets"}   ] }

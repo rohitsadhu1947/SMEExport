@@ -1,0 +1,185 @@
+Detailed Solution Description
+Project Overview
+The solution is a product- and industry-agnostic platform designed to connect artisans, manufacturers, and small-scale producers with global export-import markets. The platform provides a seamless end-to-end journey for a user (artisan, small business, or manufacturer) — from onboarding and compliance to product definition, market intelligence, and transaction execution.
+The system intelligently adapts to the selected industry (e.g., carpets, leather goods, handicrafts) and dynamically configures itself for industry-specific products, workflows, and market requirements. It is designed to support both the supply side (artisans) and the demand side (marketplace or buyers) in a scalable and highly modular way.
+The solution consists of three key phases, along with overarching governance, analytics, and intelligence layers:
+
+Phase 1: Artisan Onboarding & Profile Creation
+Objective:  To enable the user to register, validate compliance, and build a digital profile that is both functional and actionable for marketplace intelligence.
+Core Features:
+	•	Company & Tax Registration: 
+	•	Detect if the artisan’s company is registered, or if the user has valid tax/GST/other licenses. 
+	•	Provide guided workflows to assist registration if needed. 
+	•	Banking Information Integration: 
+	•	Detect if bank accounts are linked; if not, help the user link bank accounts via previously integrated banking APIs. 
+	•	Store verified account information securely for transactions. 
+	•	Customer Profile Creation: 
+	•	Capture essential company and individual details (owner info, business type, location, products, production capacity). 
+	•	Enable dynamic forms for user input, including optional PII fields. 
+	•	Government Scheme Detection (Phase 1 Applicable): 
+	•	Pull data from relevant government databases to detect scheme eligibility, grants, or subsidies applicable at the onboarding stage. 
+	•	Store eligibility metadata for downstream product creation and marketplace intelligence. 
+	•	Intelligence Layer Initialization: 
+	•	Based on artisan profile, suggest reachable and out-of-reach markets using historical trade data, product demand analysis, and compliance restrictions. 
+	•	Establish baseline metrics for production capacity, product readiness, and financial eligibility. 
+Outcome:  A fully validated artisan profile, bank-linked, tax-compliant, and ready to define products in Phase 2.
+
+Phase 2: Product & Market Layer
+Objective:  Enable the artisan to define products for the marketplace and discover market insights (demand, trends, price points).
+Core Features:
+	•	Product Catalog Integration: 
+	•	Each artisan can define products and sub-products dynamically. 
+	•	Support industry-specific fields, e.g., carpets: size, material, design complexity, price tier. 
+	•	Configurator ensures conditional field logic, enabling flexible, non-linear input structures. 
+	•	Market Intelligence: 
+	•	Integrate market demand data, trend analytics, price benchmarking, and news feeds. 
+	•	Recommend target markets (countries or regions) based on artisan profile, product specifications, and production capacity. 
+	•	Calculate premium vs. standard pricing tiers using profile inputs and market intelligence. 
+	•	Government Scheme Detection (Phase 2 Applicable): 
+	•	Fetch and apply government schemes related to production, export promotion, or product-specific subsidies. 
+	•	Dynamically calculate impact on pricing or product eligibility. 
+	•	Configurator Integration: 
+	•	Leverage the existing product configurator to define products, sub-products, addons, and optional features. 
+	•	Conditional logic allows capturing phase-dependent pricing or quality variables. 
+Outcome:  Products are fully defined, priced, and market-ready with associated intelligence, including applicable schemes and insights.
+
+Phase 3: Artisan Input & Transaction Readiness
+Objective:  Capture the production-ready input requirements for the artisan and ensure marketplace compatibility.
+Core Features:
+	•	Detailed Production Input Capture: 
+	•	Material selection, craftsmanship specifications, quantity, and custom design options. 
+	•	Conditional fields based on product type, premium/standard pricing tier, and government scheme eligibility. 
+	•	Dynamic Compliance Checks: 
+	•	Validate artisan input against marketplace requirements (e.g., labeling, quality standards, packaging). 
+	•	Ensure any applicable scheme requirements are met before product goes live. 
+	•	Transaction Preparation: 
+	•	Prepare finalized product metadata, pricing, and compliance info for listing or export transaction. 
+	•	Ensure bank account linkage and payment readiness. 
+Outcome:  Artisan is fully ready to supply products to the marketplace, export-import system, or other buyers with validated inputs, pricing, and compliance metadata.
+
+Intelligence & Governance Layer
+	•	Market Intelligence Engine: 
+	•	Continuously collects trade, pricing, and demand data. 
+	•	Offers actionable recommendations to artisans on: 
+	•	Target markets 
+	•	Pricing adjustments 
+	•	Product improvement suggestions 
+	•	Government Scheme Integration: 
+	•	Fetch and apply scheme information across phases (Phase 1: company schemes, Phase 2: product schemes). 
+	•	Provide admin-controlled overlays for complex eligibility rules. 
+	•	User Experience & Dynamic Configuration: 
+	•	Highly modular UI allows admins to update fields, validation rules, or schemes without redeployment. 
+	•	Enables dynamic product definitions across multiple industries. 
+
+System Highlights
+	•	Industry Agnostic: Can adapt to any sector (carpets, leather, electronics, clothing). 
+	•	Dynamic Product Modeling: Configurator enables full product definition including conditional fields, addons, and pricing tiers. 
+	•	Government Scheme Awareness: Real-time fetching and application of government schemes affecting pricing and eligibility. 
+	•	Intelligence-Driven: Market intelligence guides product targeting, price setting, and potential expansion opportunities. 
+	•	Phased Onboarding: Ensures artisan is validated, bank-linked, compliant, and ready before market exposure. 
+	•	No Redeployments Needed: Admins can update rules, fields, and schemes dynamically via UI.
+           Artisan Market Exposure Platform – SRS & Architecture Document
+
+1. Overview
+Purpose: A platform designed to onboard artisans and small-scale producers, assist them in compliance and banking, provide market intelligence, and facilitate product listing across industry-specific markets (textiles, leather, handicrafts, electronics, etc.) for export and domestic opportunities.
+Goals: - Minimize onboarding friction through phased workflow. - Maintain industry-agnostic capabilities. - Dynamically overlay government schemes, pricing, and product inputs. - Provide data-driven market and product recommendations.
+Phases: 1. Artisan Onboarding & Profile Creation 2. Market & Product Intelligence Layer 3. Product/Sub-product Input & Market Preparation
+
+2. Functional Requirements (FRS)
+Phase 1: Artisan Onboarding
+· FRS1: Capture user type (Individual / Company).
+· FRS2: Verify registration status (UDYAM/MSME/GI/tax).
+· FRS3: Guide users to complete registration if not done.
+· FRS4: Integrate banking and KYC verification.
+· FRS5: Capture essential company/personal details.
+· FRS6: Generate verified artisan profile with unique ID.
+· FRS7: Determine market eligibility based on compliance.
+· FRS23: Fetch and apply Phase 1 government schemes post-verification (e.g., MSME subsidies).
+Output: Verified artisan profile + Phase 1 schemes.
+Phase 2: Market & Product Intelligence
+· FRS8: Display industry-specific products & sub-products.
+· FRS9: Provide market intelligence per product/sub-product:
+o Demand index
+o Trend analysis
+o Price points
+o Export eligibility
+· FRS10: Determine pricing tier (premium/standard) based on Phase 1 info.
+· FRS11: Restrict markets based on compliance, certification, and artisan skill level.
+· FRS12: Recommend markets with rationale.
+· FRS24: Fetch and apply Phase 2 government schemes.
+Output: Market/product recommendations + Phase 2 schemes + suggested price points.
+Phase 3: Product Input & Market Preparation
+· FRS13: Dynamically generate input forms for selected products/sub-products.
+· FRS14: Pre-fill system-suggested values based on Phase 1 & 2.
+· FRS15: Collect artisan inputs for production (dimensions, material, design, capacity, certifications).
+· FRS16: Validate inputs (mandatory, conditional, regex, numeric ranges).
+· FRS17: Submit product for market-ready intelligence and buyer matching.
+Output: Market-ready product profiles linked to artisan.
+Common / Support Functions
+· Document/media uploads for compliance.
+· Audit trail and logs.
+· Dynamic admin-controlled overlays (price, schemes).
+· Notifications & alerts.
+· Analytics on trends and artisan engagement.
+
+3. Non-Functional Requirements (NFR)
+Category
+Requirement
+Scalability
+Support initial 10k+ artisans, extendable by industry
+Security
+TLS/HTTPS, token-based authentication, encryption at rest/in transit
+Availability
+99.9% uptime, low latency intelligence layer
+Extensibility
+Add industries, sub-products, and markets without redeploy
+Maintainability
+Admin dashboard controls fields, workflows, and schemes
+Compliance
+GDPR/local privacy, export compliance
+
+4. System Architecture
+4.1 High-Level Components
+[Artisan/User]      |      v [Web / Mobile Frontend] --- Admin Dashboard      |      v [API Gateway / Backend Services]      |      |-- [Authentication Service]  (Phase 1)      |-- [Onboarding Service]      (Phase 1)      |-- [Market Intelligence Service] (Phase 2)      |-- [Product Management Service]  (Phase 3)      |-- [Scheme Management Service]   (Phase 1 & 2)      |-- [Document & Media Storage]      |-- [Analytics & Insights Engine]
+4.2 Microservices Approach
+· Authentication Service: Token issuance, OAuth2/JWT.
+· Onboarding Service: Phase 1 workflows, compliance checks, Phase 1 schemes.
+· Market Intelligence Service: Trends, demand index, market eligibility, Phase 2 schemes.
+· Product Management Service: Dynamic product/sub-product forms, pricing, production guidance.
+· Scheme Management Service: Centralized Phase 1 & 2 schemes, admin overlays.
+· Admin Service: Field visibility, workflow control, price modifiers, scheme overrides.
+· Notification Service: SMS, Email, push notifications.
+· Analytics Service: Insights on demand, trends, user engagement.
+4.3 Database Schema
+Artisan Profile
+{   "artisan_id": "UUID",   "type": "individual|company",   "legal_name": "",   "registration": {     "udyam_registered": true,     "registration_number": "",     "tax_registered": true,     "tax_id": ""   },   "banking": {     "account_number": "",     "bank_name": "",     "ifsc": ""   },   "contact": { "email": "", "mobile": "", "address": {} },   "industry": "Carpet",   "skill_level": "high|medium|low",   "onboarding_status": "pending|verified",   "phase1_schemes": [] }
+Product & Sub-Product
+{   "product_id": "UUID",   "industry": "Carpet",   "name": "Premium Wool",   "sub_products": [     {       "sub_product_id": "UUID",       "name": "Handmade Premium Wool",       "tier": "premium|standard",       "input_fields": [],       "market_pricepoints": [],       "market_demand": [],       "phase2_schemes": []     }   ] }
+Market Intelligence
+{   "industry": "Carpet",   "market": "Europe",   "sub_product": "Premium Wool",   "trend_score": "rising",   "news_links": ["https://..."],   "demand_index": "high",   "eligible_artisan_tiers": ["high", "medium"] }
+
+5. Government Schemes Integration
+Phase-Based Fetching
+· Phase 1: Post-onboarding verification → fetch registration-related schemes.
+· Phase 2: Post product/market selection → fetch product/market-related schemes.
+· Effects: Pricing, eligibility, market access, tier recommendation.
+Sample JSON
+"phase1_schemes": [   {"scheme_key":"MSME","scheme_name":"MSME Subsidy","applicable":true,"benefit":"Tax rebates & low-interest credit","phase":1} ] "phase2_schemes": [   {"scheme_key":"EXPORT_PROMO","scheme_name":"Export Promotion Scheme","applicable":true,"benefit":"Duty-free exports & freight subsidies","phase":2} ]
+
+6. Phase-Wise Flow
+Phase 1: Artisan Onboarding   ↓ Verified Artisan Profile + Phase 1 Schemes   ↓ Phase 2: Market & Product Intelligence   ↓ Market/Product Recommendation + Phase 2 Schemes + Price Points   ↓ Phase 3: Product Input & Market Readiness   ↓ Market-Ready Product Submission + Buyer Matching
+
+7. Dynamic Rules & Intelligence
+· Premium Tier Calculation: Based on artisan skill, capacity, certifications.
+· Market Accessibility: Determined by Phase 1 compliance & Phase 2 schemes.
+· Price Suggestion: Base price + market factor + scheme overlay.
+· Input Field Visibility: Conditional, dynamic per product/sub-product.
+
+8. Key Advantages
+· Industry-agnostic, scalable, and configurable.
+· Phased onboarding reduces artisan friction.
+· Dynamic scheme application minimizes admin overhead.
+· Data-driven market intelligence guides artisans efficiently.
+· Admin dashboard provides full control without redeployment.
+
+

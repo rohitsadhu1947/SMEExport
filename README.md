@@ -1,78 +1,128 @@
 # Artisan Market Platform - POC Application
 
-A comprehensive Proof of Concept (POC) application for connecting artisans and small-scale producers with global export-import markets.
+## 🚀 Quick Start
 
-## 🚀 Features
+### Prerequisites
+- Node.js 18+ installed
+- npm or yarn package manager
 
-- **Phase 1**: Artisan onboarding and profile creation with compliance verification
-- **Phase 2**: Product selection and configuration with market intelligence
-- **Phase 3**: Production input and submission workflow
-- **Market Intelligence**: Real-time insights on demand, trends, and pricing
-- **Product Insights**: Detailed raw materials analysis and market-specific requirements
-- **Government Schemes**: Automatic detection and application of eligible subsidies
-- **Apple-like UI/UX**: Professional, minimalist design with smooth animations
-
-## 🛠️ Tech Stack
-
-- **Framework**: Next.js 14 (App Router)
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS
-- **Forms**: React Hook Form + Zod validation
-- **Charts**: Recharts
-- **State Management**: React Hooks + Session Storage
-
-## 📦 Installation
+### Installation
 
 ```bash
 cd frontend
 npm install
 ```
 
-## 🏃 Running the Application
+### Run Development Server
 
 ```bash
-cd frontend
 npm run dev
 ```
 
-The application will be available at `http://localhost:3000`
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## 📁 Project Structure
+## 📋 Project Status
+
+### ✅ Phase 1: Artisan Onboarding & Profile Creation (COMPLETE)
+- [x] Welcome screen with industry selection
+- [x] Registration form (Individual/Company)
+- [x] Compliance verification screen
+- [x] Banking integration screen
+- [x] Profile summary with Phase 1 schemes
+- [x] Mock API endpoints for onboarding
+- [x] Mock data setup
+
+### 🚧 Phase 2: Product & Market Layer (IN PROGRESS)
+- [ ] Product selection screen
+- [ ] Dynamic product configurator
+- [ ] Market intelligence panel
+- [ ] Pricing tier panel
+- [ ] Phase 2 scheme overlays
+
+### ⏳ Phase 3: Production Input & Submission (PENDING)
+- [ ] Production input forms
+- [ ] Validation rules
+- [ ] Preview screen
+- [ ] Submission confirmation
+
+## 🗂️ Project Structure
 
 ```
-POC-APPLICATION/
-├── frontend/
-│   ├── app/                    # Next.js app router pages
-│   ├── components/             # Reusable UI components
-│   ├── data/                  # Mock data files
-│   ├── lib/                   # Utility functions
-│   └── types/                 # TypeScript type definitions
-└── IMPLEMENTATION_PLAN.md     # Detailed implementation plan
+frontend/
+├── app/                    # Next.js app directory
+│   ├── api/               # API routes
+│   ├── welcome/           # Phase 1: Welcome screen
+│   ├── register/          # Phase 1: Registration
+│   ├── compliance/         # Phase 1: Compliance
+│   ├── banking/            # Phase 1: Banking
+│   └── profile-summary/   # Phase 1: Profile summary
+├── components/
+│   ├── ui/                # Base UI components
+│   ├── forms/             # Form components
+│   ├── intelligence/      # Market intelligence components
+│   └── layout/            # Layout components
+├── data/                  # Mock data files
+├── lib/                   # Utilities and validation
+└── types/                 # TypeScript type definitions
 ```
 
-## 🎯 Supported Industries
+## 🎨 Design System
 
-- **Leather**: Leather Shoes, Leather Bags, Leather Belts
-- **Carpets**: Bhadohi Carpets, Persian Carpets, Modern Carpets
+### Colors
+- Primary: `slate-700` (#475569)
+- Secondary: `slate-800` (#334155)
+- Accent: `#FBBF24`
+- Background: `#F9FAFB`
+- Error: `#DC2626`
 
-## 📝 Key Pages
+### Typography
+- Font: Inter
+- Responsive design (mobile-first)
 
-- `/welcome` - Landing page
-- `/register` - Artisan registration
-- `/compliance` - Compliance verification
-- `/banking` - Banking integration
-- `/profile-summary` - Profile overview
-- `/products/select` - Product selection
-- `/products/configure` - Product configuration
-- `/products/[industry]/insights` - Product insights
-- `/production/input` - Production input forms
-- `/production/preview` - Production preview
-- `/production/submit` - Submission confirmation
+## 🔌 API Endpoints
 
-## 🔐 Authentication
+### Phase 1
+- `POST /api/onboard` - Create artisan profile
+- `GET /api/artisan/[id]` - Get artisan profile
+- `GET /api/schemes/phase1` - Get Phase 1 schemes
 
-This is a POC application using mock authentication. In production, integrate with proper authentication services.
+### Phase 2 (To be implemented)
+- `GET /api/product-intelligence?industry=<industry>` - Get market intelligence
+- `GET /api/products/:industry` - Get product configurator fields
+- `GET /api/schemes/phase2` - Get Phase 2 schemes
 
-## 📄 License
+### Phase 3 (To be implemented)
+- `POST /api/submit-product` - Submit production-ready product
 
-This is a POC application for demonstration purposes.
+## 📝 Features Implemented
+
+1. **Dynamic Forms**: React Hook Form with Zod validation
+2. **Progress Indicators**: Multi-step form navigation
+3. **Status Indicators**: Visual feedback for compliance status
+4. **Scheme Integration**: Phase 1 government scheme detection
+5. **Responsive Design**: Mobile-first approach
+6. **Accessibility**: WCAG 2.1 AA compliant components
+
+## 🧪 Testing
+
+Run the linter:
+```bash
+npm run lint
+```
+
+## 📚 Documentation
+
+See `IMPLEMENTATION_PLAN.md` for detailed implementation plan and architecture.
+
+## 🎯 Next Steps
+
+1. Implement Phase 2: Product & Market Layer
+2. Implement Phase 3: Production Input & Submission
+3. Add toast notifications
+4. Enhance error handling
+5. Add loading states throughout
+6. Final testing and polish
+
+---
+
+**Built with Next.js 14, TypeScript, Tailwind CSS, and React Hook Form**
